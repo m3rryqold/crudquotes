@@ -10,9 +10,13 @@ MongoClient.connect(dburl, (err, database) =>
 	{
 		if (err) return console.log(err)
 		db = database
-		app.listen(3000, () => {
+		/*app.listen(3000, () => {
     		console.log('listening on port 3000')
-		})
+		})*/
+		var server = app.listen(process.env.PORT || 5000, function () {
+			var port = server.address().port;
+			console.log("Express is working on port " + port);
+		  });
 	})
 
 app.set('view engine', 'ejs')
