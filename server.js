@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+//const bulma = require('bulma')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
 
@@ -13,7 +14,7 @@ MongoClient.connect(dburl, (err, database) =>
 		/*app.listen(3000, () => {
     		console.log('listening on port 3000')
 		})*/
-		var server = app.listen(process.env.PORT || 5000, function () {
+		var server = app.listen(process.env.PORT || 4000, () => {
 			var port = server.address().port;
 			console.log("Express is working on port " + port);
 		  });
@@ -56,7 +57,7 @@ app.put('/quotes', (req, res) => {
 	// 	options,
 	// 	callback
 	// )
-	db.collection('quotes').findOneAndUpdate({name: 'Quota'},{
+	db.collection('quotes').findOneAndUpdate({name: req.body.change},{
 		$set: {
 			name: req.body.name,
 			quote: req.body.quote
