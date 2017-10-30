@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Learning Crud</title>
+        <title>CRUDquotez</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
     </head>
@@ -24,23 +24,52 @@
                 </div>
             </section>
 
+            <br>
+            <div>  
+            <section class="hero is-primary is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h4 class="title is-4">Creation</h4>
+                    </div>
+                </div>
+            </section> 
             
-            <div>    
-            <h4 class="title is-4">Creation</h4>
             <form action="/quotes" method="POST">
-                <input type="text" placeholder="name" name="name">
-                <input type="text" placeholder="quote" name="quote">
+                <div class="field">
+                    <div class="control has-icons-left">
+                      <input class="input is-primary" type="text" placeholder="Name" name="name">  
+                      <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                      </span>
+                    </div>
+                </div>
+                <div class="field">
+                <label class="label" for="quote">Quote</label>
+                    <div class="control has-icons-left">
+                        <textarea class="textarea" placeholder="Quote" name="quote"> </textarea>       
+                        <!--<span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                        </span>-->
+                    </div>
+                </div>
+                
                 <button type="submit" class="button is-primary is-small">Add Quote</button>
             </form>
-            </div>
+            </div><br>
 
             <div>
-            <h4 class="title is-4">Reading Quotes</h4>
+            <section class= "hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h4 class="title is-4">Reading Quotes</h4>
+                    </div>
+                </div>
+            </section> 
             
-            <div class="columns quotes">
+            <div class="columns is-multiline quotes">
                 <% for(var i=0; i<quotes.length; i++){%>
-                <div class="column">
-                    <article class="message">
+                <div class="column is-one-quarter">
+                    <article class="message is-light-dark">
                         <div class="message-header">
                             <%= quotes[i].name %>
                             <button class="delete" aria-label="delete"></button>
@@ -53,23 +82,66 @@
                 </div>
                 <%}%>
             </div>
-            </div>
+            </div><br>
 
             <div>
-                <h4 class="title is-4">Replacing Quota's Last Quote With Grey's quote(update)</h4>
+                <section class="hero is-warning is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h4 class="title is-4">Replacing quotes(update)</h4>
+                    </div>
+                </div>
+            </section> 
+                
                 <form>
-                <input type="text" name="change" placeholder="Name to be changed" id= "change" value="">
-                <input type="text" name="name" placeholder="New Name" id= "name" value="">
-                <input type="text" name="name" placeholder="New quote" id= "quote" value="">
-                <button id="update" class="button is-warning is-small"> Update Quote </button>
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input class="input is-info" type="text" name="change" placeholder="Name to be changed" id= "change">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input class="input is-success" type="text" name="name" placeholder="New Name" id= "name">
+                            <span class="icon is-small is-left">
+                                 <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                    <label class="label" for="New Quote">New Quote</label>
+                        <div class="control has-icons-left">
+                            <textarea class="textarea is-success" name="name" placeholder="New quote" id= "quote"></textarea>
+                            <!--<span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>-->
+                        </div>
+                    </div>
+                    <button id="update" class="button is-warning is-small"> Update Quote </button>
                 </form>
-            </div>
+            </div><br>
 
             <div>
-                <h4 class="title is-4">Deleting Grey's 1st quote (Delete)</h4>
+                <section class="hero is-danger is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h4 class="title is-4">Deleting quotes (Delete)</h4>
+                    </div>
+                </div>
+            </section> 
+                
                 <form>
-                <input type="text" name="remove" placeholder="Name to be removed" id="remove" value="">
-                <button id="delete" class="button is-danger is-small">Delete Quote</button>
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input class="input is-danger" type="text" name="remove" placeholder="Name to be removed" id="remove">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <button id="delete" class="button is-danger is-small">Delete Quote</button>
                 </form>    
             </div>
 
